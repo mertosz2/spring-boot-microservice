@@ -31,10 +31,11 @@ public class OrderService {
 
     private OrderLineItems mapToDto(OrderLineItemDto orderLineItemDto) {
         OrderLineItems orderLineItem = OrderLineItems.builder()
+                .skuCode(orderLineItemDto.getSkuCode())
                 .price(orderLineItemDto.getPrice())
                 .quantity(orderLineItemDto.getQuantity())
-                .skuCode(orderLineItemDto.getSkuCode())
                 .build();
+
         return orderLineItem;
     }
 }
