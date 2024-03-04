@@ -12,15 +12,29 @@ spring:
         locator:
           enabled: true
       routes:
+      # product-service
         - id: product-service
           uri: lb://product-service
           predicates:
             - Path=/api/product
-
+      # order-service
         - id: order-service
           uri: lb://order-service
           predicates:
             - Path=/api/order
+      # discovery-server
+        - id: discovery-server
+          uri: http://localhost:8761
+          predicates:
+            - Path=/eureka/web
+          filters:
+            - SetPath=/
+        # discovery-server-static
+        - id: discovery-server
+          uri: http://localhost:8761
+          predicates:
+            - Path=/eureka/**
+
 logging:
   level:
     root: INFO
