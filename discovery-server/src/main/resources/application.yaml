@@ -6,6 +6,8 @@ eureka:
       fetch-registry: false
       serviceUri:
         defaultZone: http://localhost:8761/eureka
+  username: ${EUREKA_USERNAME:eureka}
+  password: ${EUREKA_PASSWORD:password}
 
 
 server:
@@ -13,3 +15,4 @@ server:
 spring:
   application:
     name: discovery-server
+
