@@ -6,6 +6,7 @@ eureka:
 spring:
   application:
     name: api-gateway
+
   cloud:
     gateway:
       discovery:
@@ -37,14 +38,20 @@ spring:
           uri: http://localhost:8761
           predicates:
             - Path=/eureka/**
+
   security:
     oauth2:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:8181/realms/spring-boot-microservice-realm
+
 logging:
   level:
     root: INFO
     org.springframework.cloud.gateway: TRACE
     org.springframework.cloud.gateway.route.RouteDefinitionRouteLocator: TRACE
 
+management:
+  tracing:
+    sampling:
+      probability: 1.0

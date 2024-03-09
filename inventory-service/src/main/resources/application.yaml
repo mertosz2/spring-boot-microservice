@@ -4,6 +4,7 @@ spring:
     username: user
     password: password
     driver-class-name: com.mysql.cj.jdbc.Driver
+
   application:
     name: inventory-service
 
@@ -23,3 +24,8 @@ eureka:
 
 server:
   port: 0
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0

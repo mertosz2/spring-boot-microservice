@@ -12,7 +12,13 @@ eureka:
 
 server:
   port: 8761
+
 spring:
   application:
     name: discovery-server
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
 
